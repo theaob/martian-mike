@@ -12,7 +12,6 @@ script = ExtResource("1_x3y7v")
 
 [node name="Player" parent="." instance=ExtResource("2_qyraj")]
 position = Vector2(233, 18)
-motion_mode = 1
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-21, 101)
