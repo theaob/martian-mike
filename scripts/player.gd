@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var gravity = 400
 @export var speed = 150
@@ -19,7 +20,7 @@ func _physics_process(delta):
 		clamp(velocity.y, TERMINAL_VELOCITY, -TERMINAL_VELOCITY)
 		
 	# jump only if on floor and input received
-	if is_on_floor() && jumpPressed: velocity.y += -jump_velocity
+	if is_on_floor() && jumpPressed: velocity.y += jump(jump_velocity)
 	
 	velocity.x = direction * speed
 	
@@ -37,3 +38,5 @@ func update_animations(direction):
 		if velocity.y < 0: animated_sprite.play("jump")
 		else: animated_sprite.play("fall")
 		
+func jump(force):
+	velocity.y = -force
