@@ -20,7 +20,7 @@ func _physics_process(delta):
 		clamp(velocity.y, TERMINAL_VELOCITY, -TERMINAL_VELOCITY)
 		
 	# jump only if on floor and input received
-	if is_on_floor() && jumpPressed: velocity.y += jump(jump_velocity)
+	if is_on_floor() && jumpPressed: jump(jump_velocity)
 	
 	velocity.x = direction * speed
 	
