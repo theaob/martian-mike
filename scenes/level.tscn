@@ -46,11 +46,11 @@ position = Vector2(415, 231)
 
 [node name="Traps" type="Node2D" parent="."]
 
-[node name="SpikeBall" parent="Traps" instance=ExtResource("5_qajwd")]
-position = Vector2(145, 222)
-
 [node name="Saw" parent="Traps" instance=ExtResource("4_bsocj")]
 position = Vector2(65, 223)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("5_qajwd")]
+position = Vector2(20, 175)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -62,5 +62,5 @@ jump_velocity = 600
 position = Vector2(366, 235)
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
-[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
 [connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
+[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
