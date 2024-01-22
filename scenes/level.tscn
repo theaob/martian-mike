@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rrqp0kj8b1pd"]
+[gd_scene load_steps=10 format=3 uid="uid://rrqp0kj8b1pd"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_x3y7v"]
 [ext_resource type="PackedScene" uid="uid://c3l8amt86klu8" path="res://scenes/player.tscn" id="2_qyraj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://udlgly6ojwah" path="res://scenes/jump_pad.tscn" id="4_13a31"]
 [ext_resource type="PackedScene" uid="uid://bmoewmsoxs6er" path="res://scenes/saw.tscn" id="4_bsocj"]
 [ext_resource type="PackedScene" uid="uid://15u8xcxt7ulc" path="res://scenes/spike_ball.tscn" id="5_qajwd"]
+[ext_resource type="PackedScene" uid="uid://brjeo8othlqs7" path="res://scenes/tile_map.tscn" id="7_vfhch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq5fx"]
 size = Vector2(466, 20)
@@ -20,7 +21,7 @@ script = ExtResource("1_x3y7v")
 position = Vector2(233, 18)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-14, 116)
+position = Vector2(783, 593)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(237, 144)
@@ -42,12 +43,12 @@ position = Vector2(2118, 305)
 shape = SubResource("RectangleShape2D_y1swg")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(415, 231)
+position = Vector2(415, 230)
 
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" groups=["traps"] instance=ExtResource("4_bsocj")]
-position = Vector2(65, 223)
+position = Vector2(65, 221)
 
 [node name="SpikeBall" parent="Traps" groups=["traps"] instance=ExtResource("5_qajwd")]
 position = Vector2(20, 175)
@@ -55,10 +56,13 @@ position = Vector2(20, 175)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_13a31")]
-position = Vector2(316, 236)
+position = Vector2(317, 227)
 jump_velocity = 600
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_13a31")]
-position = Vector2(366, 235)
+position = Vector2(366, 226)
+
+[node name="TileMap" parent="." instance=ExtResource("7_vfhch")]
+layer_0/tile_data = PackedInt32Array(983040, 393216, 0, 1048576, 393216, 1, 1114112, 393216, 2, 983041, 458752, 0, 1048577, 458752, 1, 1114113, 458752, 2, 983042, 458752, 0, 1048578, 458752, 1, 1114114, 458752, 2, 983043, 458752, 0, 1048579, 458752, 1, 1114115, 458752, 2, 983044, 458752, 0, 1048580, 458752, 1, 1114116, 458752, 2, 983045, 458752, 0, 1048581, 458752, 1, 1114117, 458752, 2, 983046, 458752, 0, 1048582, 458752, 1, 1114118, 458752, 2, 983047, 458752, 0, 1048583, 458752, 1, 1114119, 458752, 2, 983048, 458752, 0, 1048584, 458752, 1, 1114120, 458752, 2, 983049, 458752, 0, 1048585, 458752, 1, 1114121, 458752, 2, 983050, 458752, 0, 1048586, 458752, 1, 1114122, 458752, 2, 983051, 458752, 0, 1048587, 458752, 1, 1114123, 458752, 2, 983052, 458752, 0, 1048588, 458752, 1, 1114124, 458752, 2, 983053, 458752, 0, 1048589, 458752, 1, 1114125, 458752, 2, 983054, 458752, 0, 1048590, 458752, 1, 1114126, 458752, 2, 983055, 458752, 0, 1048591, 458752, 1, 1114127, 458752, 2, 983056, 458752, 0, 1048592, 458752, 1, 1114128, 458752, 2, 983057, 458752, 0, 1048593, 458752, 1, 1114129, 458752, 2, 983058, 458752, 0, 1048594, 458752, 1, 1114130, 458752, 2, 983059, 458752, 0, 1048595, 458752, 1, 1114131, 458752, 2, 983060, 458752, 0, 1048596, 458752, 1, 1114132, 458752, 2, 983061, 458752, 0, 1048597, 458752, 1, 1114133, 458752, 2, 983062, 458752, 0, 1048598, 458752, 1, 1114134, 458752, 2, 983063, 458752, 0, 1048599, 458752, 1, 1114135, 458752, 2, 983064, 458752, 0, 1048600, 458752, 1, 1114136, 458752, 2, 983065, 458752, 0, 1048601, 458752, 1, 1114137, 458752, 2, 983066, 458752, 0, 1048602, 458752, 1, 1114138, 458752, 2, 983067, 458752, 0, 1048603, 458752, 1, 1114139, 458752, 2, 983068, 458752, 0, 1048604, 458752, 1, 1114140, 458752, 2, 983069, 458752, 0, 1048605, 458752, 1, 1114141, 458752, 2, 983070, 524288, 0, 1048606, 524288, 1, 1114142, 524288, 2, 786434, 1114112, 1, 786435, 1179648, 1, 786436, 1179648, 1, 786437, 1179648, 1, 786438, 1179648, 1, 786439, 1179648, 1, 786440, 1245184, 1)
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
