@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rrqp0kj8b1pd"]
+[gd_scene load_steps=13 format=3 uid="uid://rrqp0kj8b1pd"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_x3y7v"]
 [ext_resource type="PackedScene" uid="uid://c3l8amt86klu8" path="res://scenes/player.tscn" id="2_qyraj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://15u8xcxt7ulc" path="res://scenes/spike_ball.tscn" id="5_qajwd"]
 [ext_resource type="PackedScene" uid="uid://brjeo8othlqs7" path="res://scenes/tile_map.tscn" id="7_vfhch"]
 [ext_resource type="Texture2D" uid="uid://bn7c141s8yteb" path="res://assets/textures/bg/Green.png" id="9_tmuhr"]
+[ext_resource type="PackedScene" uid="uid://db5gyxnbjmudv" path="res://scenes/start.tscn" id="10_bcw56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq5fx"]
 size = Vector2(466, 20)
@@ -44,9 +45,6 @@ collision_mask = 2
 position = Vector2(2118, 305)
 shape = SubResource("RectangleShape2D_y1swg")
 
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(415, 230)
-
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" groups=["traps"] instance=ExtResource("4_bsocj")]
@@ -69,5 +67,8 @@ layer_0/tile_data = PackedInt32Array(983040, 393216, 0, 1048576, 393216, 1, 1114
 
 [node name="BG" parent="." instance=ExtResource("3_u77kn")]
 bg_texture = ExtResource("9_tmuhr")
+
+[node name="Start" parent="." instance=ExtResource("10_bcw56")]
+position = Vector2(164, 192)
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
