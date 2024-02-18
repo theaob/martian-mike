@@ -58,9 +58,9 @@ texture = ExtResource("2_hfciq")
 shape = SubResource("CircleShape2D_vr5k6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move_animation"
 libraries = {
 "": SubResource("AnimationLibrary_c85cj")
 }
+autoplay = "move_animation"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var start = $Start
+@onready var exit = $Exit
+
 var player = null
 
 func _ready():
@@ -9,6 +11,8 @@ func _ready():
 	var traps = get_tree().get_nodes_in_group("traps")
 	for trap in traps:
 		trap.touched_player.connect(_on_trap_touched_player)
+	
+	exit.body_entered.connect(_on_exit_body_entered)
 
 func _process(_delta):
 	var quitPressed = Input.is_action_pressed("quit")
@@ -27,3 +31,7 @@ func reset_player():
 	if player != null:
 		player.velocity = Vector2.ZERO
 		player.global_position = start.get_spawn_position()
+
+func _on_exit_body_entered(body):
+	if body is Player:
+		exit.animate()
