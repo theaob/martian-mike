@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_x3y7v"]
 [ext_resource type="PackedScene" uid="uid://cppn8udlrq8ec" path="res://scenes/level_2.tscn" id="2_8036j"]
 [ext_resource type="PackedScene" uid="uid://c3l8amt86klu8" path="res://scenes/player.tscn" id="2_qyraj"]
+[ext_resource type="PackedScene" uid="uid://dss8frvmg7gvo" path="res://scenes/death_zone.tscn" id="3_4uwrw"]
 [ext_resource type="PackedScene" uid="uid://bb7f46pkygijy" path="res://scenes/parallax_background.tscn" id="3_u77kn"]
 [ext_resource type="PackedScene" uid="uid://udlgly6ojwah" path="res://scenes/jump_pad.tscn" id="4_13a31"]
 [ext_resource type="PackedScene" uid="uid://bmoewmsoxs6er" path="res://scenes/saw.tscn" id="4_bsocj"]
@@ -12,21 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://db5gyxnbjmudv" path="res://scenes/start.tscn" id="10_bcw56"]
 [ext_resource type="PackedScene" uid="uid://47tff5j1l801" path="res://scenes/exit.tscn" id="11_fy10d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1swg"]
-size = Vector2(10201, 25)
-
 [node name="Level" type="Node2D"]
 script = ExtResource("1_x3y7v")
 nextLevel = ExtResource("2_8036j")
 
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(1, 16)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(2118, 305)
-shape = SubResource("RectangleShape2D_y1swg")
+[node name="DeathZone" parent="." instance=ExtResource("3_4uwrw")]
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -60,5 +51,3 @@ position = Vector2(897, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_qyraj")]
 position = Vector2(233, 18)
-
-[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
