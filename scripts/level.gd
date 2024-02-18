@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var nextLevel: PackedScene = null
+
 @onready var start = $Start
 @onready var exit = $Exit
 
@@ -36,3 +38,5 @@ func _on_exit_body_entered(body):
 	if body is Player:
 		exit.animate()
 		player.active = false
+		await get_tree().create_timer(1.5).timeout
+		get_tree().call_deferred("change_scene_to_packed", nextLevel)
