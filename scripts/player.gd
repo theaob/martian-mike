@@ -9,6 +9,8 @@ const TERMINAL_VELOCITY = 500
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+var active = true
+
 func _physics_process(delta):
 	
 	# left -1 right 1 still 0
@@ -19,17 +21,22 @@ func _physics_process(delta):
 		velocity.y += delta * gravity
 		clamp(velocity.y, TERMINAL_VELOCITY, -TERMINAL_VELOCITY)
 		
-	# jump only if on floor and input received
-	if is_on_floor() && jumpPressed: jump(jump_velocity)
-	
-	velocity.x = direction * speed
-	
-	if direction != 0: animated_sprite.flip_h = (direction == -1)
+	if active:
+		# jump only if on floor and input received
+		if is_on_floor() && jumpPressed: jump(jump_velocity)	
+		velocity.x = direction * speed
+		if direction != 0: animated_sprite.flip_h = (direction == -1)
+	else:
+		velocity.x = 0
 	
 	move_and_slide()
 	update_animations(direction)
 	
 func update_animations(direction):
+	
+	if not active:
+		animated_sprite.play("idle")
+		return
 	
 	if is_on_floor():
 		if direction == 0: animated_sprite.play("idle")

@@ -35,3 +35,4 @@ func reset_player():
 func _on_exit_body_entered(body):
 	if body is Player:
 		exit.animate()
+		player.active = false
