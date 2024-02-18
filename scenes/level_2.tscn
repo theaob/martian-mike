@@ -1,27 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://cppn8udlrq8ec"]
+[gd_scene load_steps=9 format=3 uid="uid://cppn8udlrq8ec"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_mbijo"]
 [ext_resource type="PackedScene" uid="uid://c3l8amt86klu8" path="res://scenes/player.tscn" id="1_sdmja"]
 [ext_resource type="PackedScene" uid="uid://brjeo8othlqs7" path="res://scenes/tile_map.tscn" id="2_2j1su"]
 [ext_resource type="PackedScene" uid="uid://bb7f46pkygijy" path="res://scenes/parallax_background.tscn" id="2_041l6"]
+[ext_resource type="PackedScene" uid="uid://c38mbd4q01gvm" path="res://scenes/level_3.tscn" id="2_qo5jc"]
 [ext_resource type="PackedScene" uid="uid://db5gyxnbjmudv" path="res://scenes/start.tscn" id="3_uaglc"]
 [ext_resource type="PackedScene" uid="uid://47tff5j1l801" path="res://scenes/exit.tscn" id="5_0bun0"]
 [ext_resource type="PackedScene" uid="uid://dss8frvmg7gvo" path="res://scenes/death_zone.tscn" id="7_s85o1"]
 
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_mbijo")
+nextLevel = ExtResource("2_qo5jc")
 
 [node name="TileMap" parent="." instance=ExtResource("2_2j1su")]
 position = Vector2(98, 32)
+layer_0/tile_data = PackedInt32Array(327702, 524288, 2, 262166, 524288, 1, 196630, 524288, 0, 327701, 458752, 2, 262165, 458752, 1, 196629, 458752, 0, 327700, 458752, 2, 262164, 458752, 1, 196628, 458752, 0, 327699, 458752, 2, 262163, 458752, 1, 196627, 458752, 0, 327698, 458752, 2, 262162, 458752, 1, 196626, 458752, 0, 327697, 458752, 2, 262161, 458752, 1, 196625, 458752, 0, 327696, 458752, 2, 262160, 458752, 1, 196624, 458752, 0, 327695, 458752, 2, 262159, 458752, 1, 196623, 458752, 0, 327694, 458752, 2, 262158, 458752, 1, 196622, 458752, 0, 327693, 458752, 2, 262157, 458752, 1, 196621, 458752, 0, 327692, 458752, 2, 262156, 458752, 1, 196620, 458752, 0, 327691, 458752, 2, 262155, 458752, 1, 196619, 458752, 0, 327690, 458752, 2, 262154, 458752, 1, 196618, 458752, 0, 327689, 458752, 2, 262153, 458752, 1, 196617, 458752, 0, 327688, 458752, 2, 262152, 458752, 1, 196616, 458752, 0, 327687, 458752, 2, 262151, 458752, 1, 196615, 458752, 0, 327686, 458752, 2, 262150, 458752, 1, 196614, 458752, 0, 327685, 458752, 2, 262149, 458752, 1, 196613, 458752, 0, 327684, 458752, 2, 262148, 458752, 1, 196612, 458752, 0, 327683, 458752, 2, 262147, 458752, 1, 196611, 458752, 0, 327682, 458752, 2, 262146, 458752, 1, 196610, 458752, 0, 327681, 458752, 2, 262145, 458752, 1, 196609, 458752, 0, 327680, 458752, 2, 262144, 458752, 1, 196608, 458752, 0, 393215, 458752, 2, 327679, 458752, 1, 262143, 458752, 0, 393214, 458752, 2, 327678, 458752, 1, 262142, 458752, 0, 393213, 458752, 2, 327677, 458752, 1, 262141, 458752, 0, 393212, 458752, 2, 327676, 458752, 1, 262140, 458752, 0, 393211, 458752, 2, 327675, 458752, 1, 262139, 458752, 0, 393210, 393216, 2, 327674, 393216, 1, 262138, 393216, 0)
 
 [node name="Start" parent="." instance=ExtResource("3_uaglc")]
-position = Vector2(24, 63)
+position = Vector2(24, 80)
 
 [node name="BG" parent="." instance=ExtResource("2_041l6")]
 
-[node name="Player" parent="." instance=ExtResource("1_sdmja")]
-
 [node name="Exit" parent="." instance=ExtResource("5_0bun0")]
-position = Vector2(98, 32)
+position = Vector2(449, 48)
 
 [node name="DeathZone" parent="." instance=ExtResource("7_s85o1")]
+
+[node name="Player" parent="." instance=ExtResource("1_sdmja")]
