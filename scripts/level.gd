@@ -46,6 +46,7 @@ func _on_trap_touched_player():
 	
 func reset_player():
 	if player != null:
+		AudioPlayer.play_hurt()
 		timeLeft = levelTime
 		hud.set_time_label(timeLeft)
 		player.velocity = Vector2.ZERO
