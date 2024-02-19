@@ -1,12 +1,15 @@
 extends Node2D
 
 @export var nextLevel: PackedScene = null
+@export var levelTime = 5
 
 @onready var start = $Start
 @onready var exit = $Exit
 @onready var deathZone = $DeathZone
 
 var player = null
+var timerNode = null
+var timeLeft
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -17,6 +20,15 @@ func _ready():
 	
 	exit.body_entered.connect(_on_exit_body_entered)
 	deathZone.body_entered.connect(_on_death_zone_body_entered)
+	
+	timeLeft = levelTime
+	
+	timerNode = Timer.new()
+	timerNode.name = "Level Timer"
+	timerNode.wait_time = 1
+	timerNode.timeout.connect(_on_level_timer_timeout)
+	add_child(timerNode)
+	timerNode.start()
 
 func _process(_delta):
 	var quitPressed = Input.is_action_pressed("quit")
@@ -38,7 +50,14 @@ func reset_player():
 
 func _on_exit_body_entered(body):
 	if body is Player:
+		timerNode.stop()
 		exit.animate()
 		player.active = false
 		await get_tree().create_timer(1.5).timeout
 		get_tree().call_deferred("change_scene_to_packed", nextLevel)
+		
+func _on_level_timer_timeout():
+	timeLeft -= 1
+	if timeLeft < 0:
+		reset_player()
+		timeLeft = levelTime
