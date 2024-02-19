@@ -17,6 +17,7 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_x3y7v")
 nextLevel = ExtResource("2_8036j")
+levelTime = 8
 
 [node name="BG" parent="." instance=ExtResource("3_u77kn")]
 scroll_offset = Vector2(-918.66, 340)

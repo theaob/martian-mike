@@ -55,7 +55,10 @@ func _on_exit_body_entered(body):
 		exit.animate()
 		player.active = false
 		await get_tree().create_timer(1.5).timeout
-		get_tree().call_deferred("change_scene_to_packed", nextLevel)
+		if nextLevel:
+			get_tree().call_deferred("change_scene_to_packed", nextLevel)
+		else:
+			$UILayer.show_win_screen(true)
 		
 func _on_level_timer_timeout():
 	timeLeft -= 1
