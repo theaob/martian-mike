@@ -46,6 +46,8 @@ func _on_trap_touched_player():
 	
 func reset_player():
 	if player != null:
+		timeLeft = levelTime
+		hud.set_time_label(timeLeft)
 		player.velocity = Vector2.ZERO
 		player.global_position = start.get_spawn_position()
 
